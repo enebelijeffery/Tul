@@ -1,0 +1,17 @@
+const axios = require("axios");
+const input = require("input");
+
+const main=async()=>{
+    const dork = await input.text("enter dork>");
+    const yahoo =()=>{
+        try{
+            for(const yahoocom of range(1,200) ){
+               const res =await axios('http://search.yahoo.com/search;_ylt=A0oG7mY5vS9O9h0A1S1XNyoA?p='+dork+'&ei=UTF-8&vm=r&fr=moz35&xargs=0&pstart=1&b='+str(yahoocom)+'1&xa=e3Awd3h7whaNaN2Z9krI0A--,1311837881');
+               const result = res.data
+               const mail = result
+            }
+        }catch(){
+        
+        }
+    }
+} 

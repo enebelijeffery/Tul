@@ -1,0 +1,21 @@
+const puppeteer = require('puppeteer');
+
+const checkFacebookEmail = async (email) => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto('https://www.facebook.com/login/identify/?ctx=recover');
+  await page.type('#identify_email', email);
+  await page.click('#u_0_2');
+  await page.waitForNavigation();
+  const pageTitle = await page.title();
+  await browser.close();
+  if (pageTitle === 'Forgot Password | Can\'t Log In | Facebook') {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+checkFacebookEmail('example@email.com')
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
